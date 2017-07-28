@@ -9,13 +9,7 @@ const $ = Rx.Observable;
 //
 const {obj} = require('iblokz-data');
 
-const listDiff = require('list-diff2');
-const deepDiff = require('deep-diff');
-// const {diff, applyChange, applyDiff} = require('deep-diff');
-
-const {take} = require('./util/common');
-const {on, select} = require('./util/dom');
-const {attach, patch, h} = require('./util/vdom');
+const {attach, patch, h} = require('../../../../lib');
 
 const ui = require('./ui');
 
@@ -41,27 +35,6 @@ const state$ = actions$
 let vdom = attach('#ui', ui({state: actions.initial, actions}));
 
 console.log(vdom);
-
-// on(document, 'click', '#toggle', ev => actions.toggle());
-
-/*
-on(document, 'input', '#itemsCount', ev => {
-	console.log(ev.target);
-	actions.set('itemsCount', ev.target.value);
-	// vdom = patch(vdom, h('ul', {}, take(ev.target.value).map(index =>
-	// 	h('li', {}, `List Item ${index}`)
-	// )));
-});
-*/
-
-/*
-on(document, 'change', '#itemsType', ev => {
-	actions.set('itemsType', ev.target.value);
-	// vdom = patch(vdom, h('ul', {}, take(ev.target.value).map(index =>
-	// 	h('li', {}, `List Item ${index}`)
-	// )));
-});
-*/
 
 // mapping the state to the ui
 const ui$ = state$.map(state => ui({state, actions}));

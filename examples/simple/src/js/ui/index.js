@@ -5,9 +5,9 @@ const {
 	form, button, input, label,
 	select, option, header,
 	ul, li, h, hr
-} = require('../util/vdom');
+} = require('../../../../../lib');
 
-const {take} = require('../util/common');
+const {take} = require('../../../../../lib/common');
 
 module.exports = ({state, actions}) => section('#ui',
 	header(
