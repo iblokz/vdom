@@ -3,7 +3,7 @@
 const {jsonEqual, unique, keysOf, put, del} = require('../lib/common');
 const {set, unset} = require('../lib/dom');
 
-const update = (el, newNode, oldNode) => [].concat(
+const update = (el, newNode, oldNode = {attrs: []}) => [].concat(
 	// to be added
 	unique(keysOf(newNode.attrs), keysOf(oldNode.attrs))
 		.map(attr => () => set(el, attr, newNode.attrs[attr])),

@@ -3,7 +3,7 @@
 const {jsonEqual, unique, keysOf, put, del} = require('../lib/common');
 const {on, off} = require('../lib/dom');
 
-const update = (el, newNode, oldNode) =>
+const update = (el, newNode, oldNode = {on: []}) =>
 	[].concat(
 		// to be added
 		unique(keysOf(newNode.on), keysOf(oldNode.on))

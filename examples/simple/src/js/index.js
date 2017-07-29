@@ -32,7 +32,7 @@ const state$ = actions$
 	.map(state => (console.log(state), state))
 	.share();
 
-let vdom = attach('#ui', ui({state: actions.initial, actions}));
+let vdom = '#ui'; // patch('#ui', ui({state: actions.initial, actions}));
 
 console.log(vdom);
 
