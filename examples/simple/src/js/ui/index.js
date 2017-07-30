@@ -5,7 +5,7 @@ const {
 	form, button, input, label,
 	select, option, header,
 	ul, li, h, hr
-} = require('../../../../../lib');
+} = require('../../../../../lib/helpers');
 
 const {take} = require('../../../../../lib/common');
 

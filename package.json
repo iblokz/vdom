@@ -1,19 +1,38 @@
 {
   "name": "iblokz-vdom",
+  "author": "Alex Milanov <alex@i4web.biz>",
+  "license": "MIT",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "",
-		"test": "",
+    "lint": "eslint lib",
+    "test": "nyc mocha --colors test/**/*",
     "sync:gh": "git checkout gh-pages && git rebase master && git push && git checkout master"
   },
-  "author": "Alex Milanov <alex@i4web.biz>",
-  "license": "MIT",
+	"nyc": {
+    "include": [
+      "lib/**/*.js"
+    ],
+    "exclude": [
+      "node_modules/",
+      "test/",
+      "examples/"
+    ],
+    "reporter": [
+      "lcov",
+      "text",
+      "html"
+    ]
+  },
   "devDependencies": {
+    "chai": "^4.1.0",
     "eslint": "^3.12.2",
     "eslint-config-google": "^0.6.0",
-    "fs-extra": "^1.0.0"
+    "fs-extra": "^1.0.0",
+    "mocha": "^3.4.2",
+    "nyc": "^11.1.0"
   },
   "dependencies": {
     "html-tags": "^2.0.0",

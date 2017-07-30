@@ -9,7 +9,7 @@ const $ = Rx.Observable;
 //
 const {obj} = require('iblokz-data');
 
-const {attach, patch, h} = require('../../../../lib');
+const {patch} = require('../../../../lib/vtree');
 
 const ui = require('./ui');
 
