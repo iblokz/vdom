@@ -35,12 +35,9 @@ module.exports = ({state, actions}) => section('#ui',
 		}}, type)
 	)),
 	' ',
-	input('#itemsCount', {
+	input(`#itemsCount[name=itemsCount][type=${state.itemsType}]`, {
 		on: {
 			input: ev => actions.set('itemsCount', ev.target.value)
-		},
-		attrs: {
-			type: state.itemsType
 		},
 		props: {
 			value: state.itemsCount
