@@ -9,6 +9,9 @@ const {
 
 const {take} = require('../../../../../lib/common');
 
+// vendor
+const Sortable = require('sortablejs');
+
 module.exports = ({state, actions}) => section('#ui',
 	header(
 		h1('<!-- VDOM Prototype -->')
@@ -54,8 +57,17 @@ module.exports = ({state, actions}) => section('#ui',
 		}
 	}),
 	*/
-	ul('.itemsList',
-		(state.itemsType === 'number') && take(state.itemsCount).map(index =>
+	ul('.itemsList', {
+		hook: {
+			insert: vnode =>
+				new Sortable(vnode.elm, {
+					group: 'table',
+					draggable: 'li',
+					preventOnFilter: false,
+					ghostClass: "placeholder"
+				})
+		}
+	}, (state.itemsType === 'number') && take(state.itemsCount).map(index =>
 			li(`List Item ${index}`)
 		) || []
 	)
