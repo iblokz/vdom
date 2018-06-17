@@ -11,7 +11,7 @@
     "test": "nyc mocha --colors test/**/*",
     "sync:gh": "git checkout gh-pages && git rebase master && git push && git checkout master"
   },
-	"nyc": {
+  "nyc": {
     "include": [
       "lib/**/*.js"
     ],
